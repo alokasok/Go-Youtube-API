@@ -1,10 +1,10 @@
 package main
 
 import (
-	"code.google.com/p/go-sqlite/go1/sqlite3"
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/mxk/go-sqlite/sqlite3"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -29,6 +29,7 @@ func main() {
 	fmt.Println("URL is " + url)
 	if url == "test" {
 		log.Fatal("Youtube URL not specified")
+		log.Fatal("./youtube-api -url $URL")
 	}
 	r, _ := regexp.Compile("v=")
 
@@ -68,7 +69,7 @@ func main() {
 			fmt.Println(k, "is int", vv)
 		case []interface{}:
 			//fmt.Println(k, "is an array:")
-			info := vv
+			//info := vv
 			//fmt.Println(info)
 			for i, u := range vv {
 				fmt.Println("inside interface")
